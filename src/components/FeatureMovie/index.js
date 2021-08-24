@@ -12,6 +12,12 @@ export default function FeatureMovie(props) {
     genres.push(props.item.genres[i].name)
   }
 
+  let description = props.item.overview
+
+  if (description.length > 200) {
+    description = description.substring(0, 200) + '...'
+  }
+
   return (
     <section className="Feature" style={{
       backgroundSize: 'cover',
@@ -36,7 +42,7 @@ export default function FeatureMovie(props) {
               </div>
             </div>
             <div className="movie--description">
-              {props.item.overview}
+              {description}
             </div>
             <div className="movie--buttons">
               <div className="button-play">

@@ -91,3 +91,27 @@
   margin-top: 15px;
   color: #999
 }
+
+@media(max-width: 760px){
+  .Feature{
+    height: 80vh;
+  }
+  .movie--name{
+    font-size: 40px;
+  }
+  .movie--info{
+    font-size: 16px;
+  }
+  .movie--description{
+    font-size: 14px;
+    max-width: 100%;
+    margin-right: 30px;
+  }
+  .button-view-more,
+  .button-play{
+    font-size: 16px;
+  }
+  .movie--genres{
+    font-size: 14px;
+  }
+}
