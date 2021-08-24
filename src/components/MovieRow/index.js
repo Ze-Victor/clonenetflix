@@ -4,7 +4,7 @@ import './style.css'
 
 export default function MovieRow({ title, items }) {
 
-  const [scrollX, setScrollX] = useState(-800)
+  const [scrollX, setScrollX] = useState(0)
 
   const handleMoveLeft = () => {
     let x = scrollX + Math.round(window.innerWidth / 2);
@@ -16,7 +16,7 @@ export default function MovieRow({ title, items }) {
   const handleMoveRight = () => {
     let x = scrollX - Math.round(window.innerWidth / 2);
     const listWidth = items.results.length * 150
-    if (window.innerWidth - listWidth < listWidth) {
+    if ((window.innerWidth - listWidth) > x) {
       x = window.innerWidth - listWidth - 60;
     }
     setScrollX(x)
