@@ -4,17 +4,23 @@ import './style.css'
 
 export default function MovieRow({ title, items }) {
 
-  const [moveX, setMoveX] = useState(-2000)
+  const [scrollX, setScrollX] = useState(-800)
 
   const handleMoveLeft = () => {
-    let x = window.scrollX + Math.round(window.innerWidth / 2);
+    let x = scrollX + Math.round(window.innerWidth / 2);
     if (x > 0) {
       x = 0
     }
-    setMoveX(x)
-
+    setScrollX(x)
   }
-  const handleMoveRight = () => { }
+  const handleMoveRight = () => {
+    let x = scrollX - Math.round(window.innerWidth / 2);
+    const listWidth = items.results.length * 150
+    if (window.innerWidth - listWidth < listWidth) {
+      x = window.innerWidth - listWidth - 60;
+    }
+    setScrollX(x)
+  }
 
   return (
     <div className="movieRow">
@@ -28,7 +34,7 @@ export default function MovieRow({ title, items }) {
       <div className="movieRow--listarea">
         <div className="movieRow--list"
           style={{
-            marginLeft: moveX,
+            marginLeft: scrollX,
             width: items.results.length * 150
           }}
         >
